@@ -1,0 +1,18 @@
+.top-img-wrapper {
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+}
+
+p.bold-green-text {
+    span {
+        color: var(--ion-color-success);
+        float: right;
+    }
+}
+
+.wp-content-wrapper {
+    padding-bottom: 15px;
+}

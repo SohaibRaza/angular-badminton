@@ -1,0 +1,72 @@
+<ion-header  >
+  <ion-toolbar>
+    <span class="toolbar-label">Mental Courses</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="{hidden: isLoading}">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="categories-wrapper" *ngIf="pageMeta">
+    <img [src]="pageMeta.featured_image_src" routerLink="/mental-courses/{{pageMeta.excerpt.pageId}}"/>
+    <div class="info-wrapper">
+      <p class="bold-green-text">Mental Categories</p>
+      <p >Coach: {{pageMeta.excerpt.coach}}</p>
+      <p >Levels: {{pageMeta.excerpt.levels}}</p>
+      <p >Duration: {{pageMeta.excerpt.duration}}</p>
+
+      <ion-button class="gradient-button big-btn" routerLink="/mental-courses/{{pageMeta.excerpt.pageId}}">
+        WATCH
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="main-wrapper ">
+    <p>&nbsp;</p>
+    <p class="bold-green-text has-horizontal-padding">
+      Latest mental courses
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestMentalCourses">
+
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestMentalCourses" routerLink="/mental-courses/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+    <div class="has-padding">
+
+    <p class="bold-green-text no-bottom-space">
+      All mental courses
+    </p>
+    <div *ngFor="let tp of filteredMentalCourses" class="record-info-wrapper" routerLink="/mental-courses/{{tp.id}}">
+      <p class="bold-blue-text" >
+        Mental Course 
+      </p>
+      <p class="bold-green-text">
+        {{tp.title}}
+
+        <i class="material-icons" routerLink="/mental-courses/{{tp.id}}" color="success">chevron_right</i>
+      </p>
+      <p>Coach: {{tp.excerpt.coach}} | Duration: {{tp.excerpt.duration}}</p>
+      <hr>
+    </div>
+
+    <div *ngIf="displayCount < mentalCourses.length" class="footer-wrapper">
+      <ion-button class="gradient-button big-btn" (click)="loadMore()">
+        LOAD MORE
+      </ion-button>
+    </div>
+  </div>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+.section {
+    color: var(--ion-color-success);
+    padding-bottom: 15px;
+    
+    i {
+        margin-left: 10px;
+        float: right;
+    }
+}
+
+iframe {
+    width: 100%;
+}
+
+.buttom-section {
+    padding-bottom: 15px;
+}
+
+.my-download-progress {
+    border-radius: 50%;
+    width: 5.5vw;
+    height: 2.5vh;
+}

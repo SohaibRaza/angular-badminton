@@ -1,0 +1,55 @@
+.content {
+    overflow-y: scroll;
+}
+
+.footer-wrapper {
+    ion-button {
+        position: relative;
+        width: 50%;
+        left: 25%;
+    }
+}
+
+.embed-wrapper {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.categories-wrapper {
+    box-shadow: 5px 5px 20px -15px grey;
+    position: relative;
+
+    div {
+        padding: 15px
+    }
+}
+
+.main-wrapper {
+    position: relative;
+    padding-top: 0px;
+}
+
+.info-wrapper {
+    p {
+        color: var(--ion-color-dark-blue);
+        margin: 3px 0;
+    }
+
+    ion-button {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        width: 40vw;
+        margin-right: 0px;
+    }
+}

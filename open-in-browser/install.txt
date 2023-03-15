@@ -1,0 +1,4 @@
+copy the folder 'open-in-browser' to 'node_modules/@ionic-native'
+run following commands for cordova plugin install:
+cordova plugin add open-in-browser/cordova-plugin-open-in-browser
+cp -R open-in-browser/open-in-browser node_modules/@ionic-native/open-in-browser

@@ -1,0 +1,134 @@
+{
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@^1.3.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-statusbar": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-statusbar@^2.4.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-device": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-device@^2.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-splashscreen": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-splashscreen@^5.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-ionic-webview": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ionic-webview@^4.2.1"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+    }
+  },
+  "cordova-plugin-ionic-keyboard": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ionic-keyboard@^2.2.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-fcm-with-dependecy-updated": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm-with-dependecy-updated@^7.7.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROID_DEFAULT_NOTIFICATION_ICON": "@mipmap/ic_launcher",
+      "ANDROID_FIREBASE_BOM_VERSION": "26.0.0",
+      "ANDROID_GOOGLE_SERVICES_VERSION": "4.3.4",
+      "ANDROID_GRADLE_TOOLS_VERSION": "4.1.0",
+      "IOS_FIREBASE_MESSAGING_VERSION": "~> 7.0.0"
+    }
+  },
+  "cordova-plugin-android-fingerprint-auth": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-android-fingerprint-auth@1.5.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx@^3.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-androidx-adapter": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-androidx-adapter@^1.1.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-touch-id": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-touch-id@^3.4.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "FACEID_USAGE_DESCRIPTION": "For easy authentication"
+    }
+  },
+  "cordova-plugin-add-swift-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-add-swift-support@^2.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-advanced-http": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-advanced-http@^3.3.1"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROIDBLACKLISTSECURESOCKETPROTOCOLS": "SSLv3,TLSv1"
+    }
+  },
+  "cordova-plugin-file": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-file@^7.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "com.moust.cordova.videoplayer": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/moust/cordova-plugin-videoplayer.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}

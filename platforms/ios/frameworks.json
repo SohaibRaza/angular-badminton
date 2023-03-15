@@ -1,0 +1,6 @@
+{
+    "WebKit.framework": 1,
+    "LocalAuthentication.framework": 1,
+    "Security.framework": 2,
+    "SystemConfiguration.framework": 1
+}

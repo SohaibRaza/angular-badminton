@@ -1,0 +1,93 @@
+<ion-header  >
+  <ion-toolbar>
+
+     
+    <span class="toolbar-label">Training Programs</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="{hidden: isLoading}" >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="main-wrapper ">
+    
+    <p class="bold-green-text has-horizontal-padding">
+      Latest Beginner programs
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestBeginner">
+
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestBeginner" routerLink="/training-programs/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+    
+    <p class="bold-green-text has-horizontal-padding">
+      Latest Intermediate programs
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestIntermediate">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestIntermediate" routerLink="/training-programs/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+    <p class="bold-green-text has-horizontal-padding">
+      Latest Advanced programs
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestAdvanced">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestAdvanced" routerLink="/training-programs/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+  <div class="has-padding">
+
+    <br>
+    <p class="bold-green-text no-bottom-space">
+      All Training Programs
+    </p>
+    <div class="list-of-all">
+      <ion-button *ngFor="let category of categoryNames" (click)="toggleCategory(category)"
+          [ngClass]="{'gradient-button': planCategories[category], 'inactive-button': !planCategories[category]}" >
+        {{category}}
+      </ion-button>
+    </div>
+    
+    <div class="list-of-all">
+      <ion-button *ngFor="let category of pageCategories; " (click)="togglePageCategory(category.name)"
+          [ngClass]="{'gradient-button': isCatSelected(category.name), 'inactive-button': !isCatSelected(category.name)}" >
+        {{category.name}}
+      </ion-button>
+    </div>
+
+    <div *ngFor="let tp of filteredTrainingPrograms" class="record-info-wrapper" routerLink="/training-programs/{{tp.id}}">
+      <p class="bold-blue-text" >
+        Training Program | {{tp.excerpt.category}}
+      </p>
+      <p class="bold-green-text">
+        {{tp.title}}
+
+        <i class="material-icons" color="success">chevron_right</i>
+      </p>
+      <p>Coach: {{tp.excerpt.coach}} | Duration: {{tp.excerpt.duration}}</p>
+      <hr>
+    </div>
+
+    <div *ngIf="displayCount < allFiltered.length" class="footer-wrapper">
+      <ion-button class="gradient-button big-btn" (click)="loadMore()">
+        LOAD MORE
+      </ion-button>
+    </div>
+  </div>
+  </div>
+</ion-content>

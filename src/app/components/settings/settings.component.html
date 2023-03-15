@@ -1,0 +1,64 @@
+<ion-header  >
+  <ion-toolbar>
+
+    <span class="toolbar-label">Account</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="has-background">
+  <div class="main-wrapper has-padding">
+    <div class="notification-wrapper">
+      <ion-toggle [(ngModel)]="notificationsEnabled" (ionChange)="updateSettings()" color="success"></ion-toggle>
+      <p class="bold-green-text">Notifications</p>
+      <p>Get notifications when new content is published</p>
+    </div>
+
+    <div class="notification-wrapper" *ngIf="scanAuthAvailable">
+      <ion-toggle [(ngModel)]="scanAuthEnabled" (ionChange)="updateAuthSettings()" color="success"></ion-toggle>
+      <p class="bold-green-text">Auto login</p>
+      <p>Login with scan authentication option instead of username/password</p>
+    </div>
+
+    <div class="user-info-wrapper">
+      <p class="bold-green-text">Account details</p>
+      <div class="left-side">
+        <p class="bold-green-text">First name:</p>
+        <p class="bold-green-text">Last name:</p>
+        <p class="bold-green-text">Email:</p>
+        <!-- <p class="bold-green-text">Subscription:</p> -->
+      </div>
+
+      <div class="right-side">
+        <p >{{userInfo.first_name}}</p>
+        <p >{{userInfo.last_name}}</p>
+        <p >{{userInfo.email}}</p>
+        <!-- <p *ngIf="sub">
+          {{sub}} subscription
+        </p>-->
+      </div>
+    </div>
+
+    <div class="bottom-wrapper">
+      <p>&nbsp;</p>
+<!-- 
+      <a href="https://plus.badmintonfamly.com/account/" 
+          class="gradient-button">Go to website</a> -->
+    </div>
+
+    <div class="logout-wrapper">
+      <ion-button color="danger" fill="clear" (click)="logout()">LOG OUT</ion-button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-item *ngFor="let pl of favoriteService.playlists" (click)="selectPlan(pl.id)">
+  <i  class="material-icons" color="success" *ngIf="favoriteService.playlistsById[pl.id] && favoriteService.playlistsById[pl.id].videoIds.includes(videoId)">check</i>
+  {{pl.name}}
+</ion-item>
+
+<ion-item>
+  <form class="form-wrapper" [formGroup]="planForm" (ngSubmit)="createPlan()">    
+    <ion-button type="submit" class="gradient-button full-width">
+      <span *ngIf="!loading">
+        Create Plan
+      </span>
+      <ion-spinner *ngIf="loading" ></ion-spinner>
+    </ion-button>
+  </form>
+</ion-item>

@@ -1,0 +1,91 @@
+PODS:
+  - Firebase/CoreOnly (7.0.0):
+    - FirebaseCore (= 7.0.0)
+  - Firebase/Messaging (7.0.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 7.0.0)
+  - FirebaseCore (7.0.0):
+    - FirebaseCoreDiagnostics (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+  - FirebaseCoreDiagnostics (7.11.0):
+    - GoogleDataTransport (~> 8.4)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+    - nanopb (~> 2.30908.0)
+  - FirebaseInstallations (7.11.0):
+    - FirebaseCore (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+    - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (7.11.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+  - FirebaseMessaging (7.0.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstanceID (~> 7.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Reachability (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+  - GoogleDataTransport (8.4.0):
+    - GoogleUtilities/Environment (~> 7.2)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.10.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.10.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.10.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/Network (7.10.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.10.0)"
+  - GoogleUtilities/Reachability (7.10.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.10.0):
+    - GoogleUtilities/Logger
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
+  - PromisesObjC (1.2.12)
+
+DEPENDENCIES:
+  - Firebase/Messaging (~> 7.0.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Firebase
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseInstallations
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - GoogleDataTransport
+    - GoogleUtilities
+    - nanopb
+    - PromisesObjC
+
+SPEC CHECKSUMS:
+  Firebase: 50be68416f50eb4eb2ecb0e78acab9a051ef95df
+  FirebaseCore: cf3122185fce1cf71cedbbc498ea84d2b3e7cb69
+  FirebaseCoreDiagnostics: 68ad972f99206cef818230f3f3179d52ccfb7f8c
+  FirebaseInstallations: a58d4f72ec5861840b84df489f2668d970df558a
+  FirebaseInstanceID: ad5135045a498d7775903efd39762d2cdfa1be27
+  FirebaseMessaging: ecf9e04716b7ff1f1d92debab4d6f0e6bdb490aa
+  GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
+  GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95
+  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+
+PODFILE CHECKSUM: 2075591acb777398b90f79e0c03b09d558f4bca7
+
+COCOAPODS: 1.11.3

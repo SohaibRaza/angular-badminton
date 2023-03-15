@@ -1,0 +1,39 @@
+<ion-header  >
+  <ion-toolbar>
+
+ 
+<ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="top-img-wrapper">
+    <img [src]="article ? article.featured_image_src : ''" />
+  </div>
+  <div class="main-wrapper ">
+    <div *ngIf="article" class="wp-content-wrapper has-horizontal-padding" [innerHTML]="article.rendered_content"></div>
+    <p class="bold-green-text has-horizontal-padding">
+      Latest Articles
+
+      <span routerLink="/articles">View all</span>
+    </p>
+
+    <div class="scroll-wrapper" *ngIf="articles">
+      
+
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of articles" routerLink="/articles/{{tp.id}}" [src]="tp ? tp.featured_image_src : ''" />
+      </div>
+    </div>
+  </div>
+</ion-content>

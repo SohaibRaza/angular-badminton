@@ -1,0 +1,33 @@
+<ion-header  >
+  <ion-toolbar>
+    <span class="toolbar-label">{{selectedTab == 'favorites' ? 'Favorites' : 'Training Plans'}}</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #mainContent>
+  <!-- <div class="top-wrapper">
+    <ion-button fill="clear" (click)="openTab('favorites')" [ngClass]="{active: selectedTab == 'favorites'}">Favorites</ion-button>
+    <ion-button fill="clear" (click)="openTab('plans')" [ngClass]="{active: selectedTab != 'favorites'}">Plans</ion-button>
+  </div> -->
+
+  <div class='main-wrapper'>
+    <div  *ngIf="selectedTab == 'favorites'">
+      <favorites-tab></favorites-tab>
+    </div>
+
+    <div *ngIf="selectedTab != 'favorites'">
+      <plans-tab></plans-tab>
+    </div>
+  </div>
+</ion-content>

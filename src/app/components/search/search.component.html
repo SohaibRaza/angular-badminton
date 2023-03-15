@@ -1,0 +1,92 @@
+<ion-header  >
+  <ion-toolbar>
+
+     
+    <span class="toolbar-label">Search</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-wrapper has-padding">
+    <div class="toggle-wrapper" >
+      <ion-toggle slot="end" color="success" [(ngModel)]="hidenSearch"></ion-toggle>
+      <ion-label slot="end" class="bold-green-text no-bottom-space">Hide filters</ion-label>      
+    </div>
+    
+
+    <div [ngClass]="{hidden: hidenSearch}">
+      <div class="list-of-all">
+        <p class="bold-green-text no-bottom-space">Level</p>
+        <ion-button *ngFor="let level of levels" (click)="toggleLevel(level)"
+            [ngClass]="{'gradient-button': selectedLevels[level], 'inactive-button': !selectedLevels[level]}" >
+          {{level}}
+        </ion-button>
+      </div>
+      
+      <div class="list-of-all">
+        <p class="bold-green-text no-bottom-space">Category</p>
+        <ion-button *ngFor="let category of categories" (click)="toggleCategory(category.name)"
+            [ngClass]="{'gradient-button': selectedCategories[category.name], 'inactive-button': !selectedCategories[category.name]}" >
+          {{category.name}}
+        </ion-button>
+      </div>
+  
+      <div class="list-of-all tags-wrapper">
+        <p class="bold-green-text no-bottom-space">Themes & Tags</p>
+        <ion-button *ngFor="let tag of tags" (click)="toggleTag(tag.id)"
+            [ngClass]="{'gradient-button': selectedTags[tag.id], 'inactive-button': !selectedTags[tag.id]}" >
+          {{tag.name}}
+        </ion-button>
+      </div>
+  
+      <div class="search-wrapper">
+        <ion-button class="gradient-button big-btn" (click)="search()">
+          <ion-spinner *ngIf="loading"></ion-spinner>
+          <span *ngIf="!loading">SEARCH</span>
+        </ion-button>
+      </div>
+    </div>    
+
+    <div class="result-wrapper" *ngIf="filteredResult">
+      <p *ngIf="filteredResult.length == 0" class="bold-green-text no-bottom-space text-center">
+        Nothing match your filter settings
+      </p>
+
+      <p *ngIf="filteredResult.length != 0" class="bold-green-text no-bottom-space">
+        Search Results
+      </p>
+
+      <div *ngFor="let tp of filteredResult" class="record-info-wrapper" 
+            routerLink="/{{pageService.pageUrlsBySlugs[tp.parent.slug]}}/{{tp.id}}">
+        <p class="bold-blue-text" >
+          {{tp.parent.clean_title}}  {{tp.excerpt.category ? '| ' + tp.excerpt.category : ''}}
+        </p>
+        <p class="bold-green-text no-bottom-space">
+          {{tp.clean_title}}
+
+          <i class="material-icons" routerLink="/{{pageService.pageUrlsBySlugs[tp.parent.slug]}}/{{tp.id}}" color="success">chevron_right</i>
+        </p>
+        <p>Coach: {{tp.excerpt.coach}} | Duration: {{tp.excerpt.duration}}</p>
+        <hr>
+      </div>
+
+      <div *ngIf="displayCount < allRecords.length" class="open-filters-wrapper">
+        <ion-button class="gradient-button big-btn" (click)="loadMore()">
+          LOAD MORE
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+

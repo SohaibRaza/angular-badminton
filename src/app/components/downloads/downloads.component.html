@@ -1,0 +1,26 @@
+<ion-header >
+  <ion-toolbar>
+    <span class="toolbar-label">Downloads</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>    
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="ml-1">Downloads Category</h1>
+  <ion-item *ngFor="let item of parentDownloadList" detail="true" routerLink="/downloads/{{item.page}}">
+    <ion-label>
+      <h3>{{ item.page | uppercase }}</h3>
+    </ion-label>
+  </ion-item>
+</ion-content>

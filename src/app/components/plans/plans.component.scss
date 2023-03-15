@@ -1,0 +1,14 @@
+.top-wrapper {
+    height: 60px;
+
+    ion-button {
+        width: 50%;
+        height: 100%;
+        margin: 0px !important;
+        color: black;
+
+        &.active {
+            border-bottom: 4px solid var(--ion-color-primary);
+        }
+    }
+}

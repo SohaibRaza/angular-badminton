@@ -1,0 +1,24 @@
+<div class="control-buttons">
+  <ion-button class="inactive-button" (click)="emitMoveUp()">
+    <i  class="material-icons">expand_less</i>
+  </ion-button>
+
+  <ion-button class="inactive-button" (click)="emitMoveDown()">
+    <i  class="material-icons">expand_more</i>
+  </ion-button>
+
+  <ion-button class="inactive-button" (click)="deleteVideoFromPlan()" >
+    <i  class="material-icons" color="danger">close</i>
+  </ion-button>
+</div>
+
+<form [formGroup]="planForm" (ngSubmit)="saveNote()">
+  <p class="bold-green-text">Notes to this video</p>
+  <textarea #text [(ngModel)]="videoData.note" formControlName="videoNote" placeholder="Enter note here" (keyup)="textChanged($event)" ></textarea>
+  <ion-button type="submit" class="gradient-button">
+    Save
+  </ion-button>
+
+  <hr>
+  <br>
+</form>

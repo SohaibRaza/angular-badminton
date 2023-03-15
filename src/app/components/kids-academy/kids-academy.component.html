@@ -1,0 +1,82 @@
+<ion-header  >
+  <ion-toolbar>
+    <span class="toolbar-label">Kids Academy</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="{hidden: isLoading}">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="main-wrapper ">
+
+    <p class="bold-green-text has-horizontal-padding">
+      Level 1 - Themes
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestLevel1">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestLevel1" routerLink="/kids-academy/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+    <p class="bold-green-text has-horizontal-padding">
+      Level 2 - Themes
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestLevel2">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestLevel2" routerLink="/kids-academy/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+    <p class="bold-green-text has-horizontal-padding">
+      Level 3 - Themes
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestLevel3">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestLevel3" routerLink="/kids-academy/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+    <div class="has-padding">
+    
+    <p class="bold-green-text no-bottom-space">
+      All from Kids Academy
+    </p>
+    <div class="list-of-all">
+      <ion-button *ngFor="let category of pageCategories" (click)="toggleCategory(category)"
+          [ngClass]="{'gradient-button': planCategories[category], 'inactive-button': !planCategories[category]}" >
+        {{category}}
+      </ion-button>
+    </div>
+
+    <div *ngFor="let tp of filteredKidsAcademy" class="record-info-wrapper" routerLink="/kids-academy/{{tp.id}}">
+      <p class="bold-blue-text" >
+        Kids Academy | {{tp.excerpt.category}}
+      </p>
+      <p class="bold-green-text">
+        {{tp.title}}
+
+        <i class="material-icons" routerLink="/kids-academy/{{tp.id}}" color="success">chevron_right</i>
+      </p>
+      <p>Videos in theme: {{tp.excerpt.videoAmount}}</p>
+      <hr>
+    </div>
+
+    <div *ngIf="displayCount < allFiltered.length" class="footer-wrapper">
+      <ion-button class="gradient-button big-btn" (click)="loadMore()">
+        LOAD MORE
+      </ion-button>
+    </div>
+  </div>
+  </div>
+</ion-content>

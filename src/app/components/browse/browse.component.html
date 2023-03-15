@@ -1,0 +1,257 @@
+<ion-header >
+  <ion-toolbar>
+    <span class="toolbar-label">Browse</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>    
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="slider-wrapper">
+    <ion-slides pager="true" [options]="slideOpts" #slides [ngClass]="{hidden: !sliderItems}">
+      <ion-slide *ngFor="let item of sliderItems; let ind = index;">
+        <img  [src]="item.featured_image_src" />
+        <ion-button *ngIf="item.excerpt" class="gradient-button" (click)="goToPage(item)">
+          {{item.excerpt.buttonText}}
+        </ion-button>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+<div [ngClass]="{hidden: isLoading}" class="main-wrapper">
+  
+
+  <div class="has-horizontal-padding">
+    <p class="bold-green-text">
+      Latest Content
+
+      <span routerLink="/whats-new">View all</span>
+    </p>
+  </div>
+
+    <div class="scroll-wrapper" *ngIf="latestContent">
+      
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestContent" 
+        (click)="goToPageByParent(tp)"
+          [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+  <div class="has-horizontal-padding">
+    
+    <p class="bold-green-text">
+      Latest Training Programs
+
+      <span routerLink="/training-programs">View all</span>
+    </p>
+
+  </div>
+    <div class="scroll-wrapper " *ngIf="latestTrainingPrograms">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestTrainingPrograms" routerLink="/training-programs/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+  <div class="has-horizontal-padding">
+
+    <p class="bold-green-text">
+      Latest Tactical Lessons
+
+      <span routerLink="/tactical-lessons">View all</span>
+    </p>
+  </div>
+
+    <div class="scroll-wrapper" *ngIf="latestTacticalLessons">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestTacticalLessons" routerLink="/tactical-lessons/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+  <div class="has-horizontal-padding">
+
+    <p class="bold-green-text">
+      Latest Kids Academy
+
+      <span routerLink="/kids-academy">View all</span>
+    </p>
+  </div>
+
+    <div class="scroll-wrapper" *ngIf="latestTacticalLessons">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestKidsAcademies" routerLink="/kids-academy/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+  <div class="sm-hidden">
+    <div class="has-horizontal-padding">
+    
+      <p class="bold-green-text">
+        Latest Podcasts
+  
+        <span routerLink="/podcasts">View all</span>
+      </p>
+    </div>
+
+    <div class="scroll-wrapper" *ngIf="latestPodcasts">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestPodcasts" routerLink="/podacasts/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+    <div class="has-horizontal-padding">
+      <p class="bold-green-text">
+        Latest Physical programs
+  
+        <span routerLink="/physical-programs">View all</span>
+      </p>
+    </div>
+    <div class="scroll-wrapper" *ngIf="latestPodcasts">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestPhysicalPrograms" routerLink="/physical-programs/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <div class="podcast-wrapper lg-hidden">
+    <p class="bold-green-text text-center">
+      Latest Podcast
+    </p>
+
+    <div *ngIf="latestPodcast">
+      <img routerLink="/podcasts/{{latestPodcast.id}}" [src]="latestPodcast.featured_image_src" />
+    </div>
+      
+    <ion-button  (click)="goToPage({excerpt: {itemType: 'podcast', itemId: latestPodcast.id}})">
+      WATCH/LISTEN
+    </ion-button>
+  </div>
+
+
+  <div class="lg-hidden physical-wrapper">
+    <div class="has-horizontal-padding ">
+      <div class="" *ngIf="latestPhysicalProgram">
+        <p class="bold-green-text">
+          Latest Physical program
+
+          <span routerLink="/physical-programs">View all</span>
+        </p>
+      </div>
+    </div>
+    <img routerLink="/physical-programs/{{latestPhysicalProgram.id}}" *ngIf="latestPhysicalProgram"
+        [src]="latestPhysicalProgram.featured_image_src" />
+    <div class="has-padding">
+      <div class="excerpt-wrapper" *ngIf="latestPhysicalProgram">
+        <p class="bold-green-text">{{latestPhysicalProgram.title}}</p>
+        <p >Coach: {{latestPhysicalProgram.excerpt.coach}}</p>
+        <p >Levels: {{latestPhysicalProgram.excerpt.levels}}</p>
+        <p >Duration: {{latestPhysicalProgram.excerpt.duration}}</p>
+
+        <ion-button class="gradient-button big-btn"
+        (click)="goToPage({excerpt: {itemType: 'physical-program', itemId: latestPhysicalProgram.id}})">
+          WATCH PROGRAM
+        </ion-button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div>
+    <img src="/assets/coaches-phone.jpeg" *ngIf="isPhone()" class="welcome-img" />
+    <img src="/assets/coaches-tablet.jpeg" *ngIf="!isPhone()" class="welcome-img" />
+
+    <div class="lg-hidden">
+      <div class="has-horizontal-padding">
+        <p class="bold-green-text">
+          Latest Mental Course
+          <span routerLink="/mental-courses">View all</span>
+        </p>      
+      </div>
+
+      <img routerLink="/mental-courses/{{latestBrowseMentalCourse.id}}" [src]="latestBrowseMentalCourse.featured_image_src" />
+
+      <div class="mental-bottom-wrapper has-padding " *ngIf="latestBrowseMentalCourse.excerpt">
+        <div class="excerpt-wrapper">
+          <p class="bold-green-text">{{latestBrowseMentalCourse.title}}</p>
+          <p >Coach: {{latestBrowseMentalCourse.excerpt.coach}}</p>
+          <p >Levels: {{latestBrowseMentalCourse.excerpt.levels}}</p>
+          <p >Duration: {{latestBrowseMentalCourse.excerpt.duration}}</p>
+
+          <ion-button class="gradient-button big-btn"
+          (click)="goToPage({excerpt: {itemType: 'mental-course', itemId: latestBrowseMentalCourse.id}})">
+            WATCH COURSE
+          </ion-button>
+        </div>
+        
+      </div>
+    </div>
+    <div class=" sm-hidden">
+      <div class="has-horizontal-padding">
+      <p class="bold-green-text">
+        Latest Mental courses
+  
+        <span routerLink="/mental-coures">View all</span>
+      </p>
+      </div>
+      <div class="scroll-wrapper" *ngIf="latestBrowseMentalCourses">
+        <div class="horizontal-scroll">
+          <img *ngFor="let tp of latestBrowseMentalCourses" routerLink="/mental-courses/{{tp.id}}" [src]="tp.featured_image_src" />
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+
+  <div class="has-horizontal-padding">
+    <p class="bold-green-text">
+      Video Tutorials
+
+      <span routerLink="/tutorials">View all</span>
+    </p>
+  </div>
+    <div class="tutorial-wrapper scroll-wrapper">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestTutorialCategories" routerLink="/tutorials/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+  
+  <div class="has-horizontal-padding">
+    <p class="bold-green-text">
+      Latest Articles
+
+      <span routerLink="/articles">View all</span>
+    </p>
+  </div>
+    <div class="scroll-wrapper scroll-wrapper">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestArticles" routerLink="/articles/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+  <div class="has-horizontal-padding">
+    <div class="bottom-logo-wrapper">
+      <p class="bold-green-text">
+        Sponsored by
+      </p>
+      <img src="/assets/Yonex-logo.png" />
+    </div>
+  </div>
+  </div>
+</ion-content>

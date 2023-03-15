@@ -1,0 +1,61 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-android-fingerprint-auth": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-androidx": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-touch-id": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-open-in-browser": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-advanced-http": {
+      "ANDROIDBLACKLISTSECURESOCKETPROTOCOLS": "SSLv3,TLSv1",
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "famly.plus"
+    },
+    "com.moust.cordova.videoplayer": {
+      "PACKAGE_NAME": "famly.plus"
+    }
+  },
+  "dependent_plugins": {}
+}

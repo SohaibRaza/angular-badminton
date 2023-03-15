@@ -1,0 +1,29 @@
+.article-wrapper {
+    background-color: rgb(244,244,244);
+    margin-bottom: 30px;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .has-padding {
+        padding-top: 0px;
+
+        ::ng-deep p {
+            margin: 5px 0;
+        }
+        
+        .bold-green-text {
+            margin-top: 15px;
+        }
+    }
+}
+
+.footer-wrapper {
+    ion-button {
+        position: relative;
+        width: 50%;
+        left: 25%;
+    }
+}

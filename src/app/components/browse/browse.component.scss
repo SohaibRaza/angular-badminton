@@ -1,0 +1,156 @@
+ion-slide {
+    position: relative;
+
+    img {
+        width: 100vw;
+        max-width: 100vw;
+        max-height: 100vh;
+        border: none !important;
+    }
+
+    .material-icons {
+        position: absolute;
+        bottom: 5vh;
+        left: 5vw;
+        color: var(--ion-color-primary);
+        font-size: 40px;
+    }
+
+    ion-button {
+        position: absolute;
+        bottom: 30px;
+    }
+}
+
+.slider-wrapper {
+    ion-spinner {
+        width: 100%;
+    }
+
+    ion-button {
+        width: 50vw;
+    }
+}
+
+p.bold-green-text {
+    margin-top: 30px;
+
+    span {
+        color: var(--ion-color-success);
+        float: right;
+    }
+}
+
+.podcast-wrapper {
+    background-image: url('/assets/podcast-background.jpeg');
+    background-size: cover;
+    width: 100vw;
+    height: calc(100vw * 1.15);
+
+    img {
+        max-height: 50vw;
+        margin: 0 auto;
+        display: block;
+        margin-top: 25vw;
+        width: calc(100vw - 40px);
+    }
+
+    p.bold-green-text {
+        position: relative;
+        top: calc(25vw - 5px);
+        margin: 0px;
+    }
+
+    ion-button {
+        display: block;
+        margin: 0 auto;
+        --background: var(--ion-color-light-tint);
+        --color: #054759;
+        width: 35vw;
+        margin-top: 10px;
+    }
+}
+
+.kids-academy-wrapper {
+    background-size: cover;
+    width: 100vw;
+
+    img {
+        max-height: 50vw;
+        margin: 0 auto;
+        display: block;
+        // margin-top: 25vw;
+        width: calc(100vw - 40px);
+    }
+
+    p.bold-white-text {
+        position: relative;
+        // top: calc(25vw - 5px);
+        margin: 0px;
+    }
+
+    ion-button {
+        display: block;
+        margin: 0 auto;
+        --background: var(--ion-color-light-tint);
+        --color: #054759;
+        width: 35vw;
+        margin-top: 10px;
+    }
+}
+
+.tutorial-wrapper {
+    img {
+        border: none !important;
+    }
+}
+
+.mental-bottom-wrapper, .physical-wrapper {
+    box-shadow: 5px 22px 15px -25px grey;
+    position: relative;
+    z-index: 2;
+}
+
+.physical-wrapper {
+    margin: 50px 0px;
+}
+
+.mental-bottom-wrapper {
+    margin-bottom: 35px;
+}
+
+.welcome-img {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 35px;
+}
+
+.excerpt-wrapper {
+    position: relative;
+    p {
+        margin: 2px 0;
+    }
+
+    ion-button {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        width: 40vw;
+        margin-right: 0px;
+    }
+}
+
+.bottom-logo-wrapper {
+    padding: 40px 0;
+
+    p {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    img {
+        display: block;
+        width: 38vw;
+        margin: 0px auto;
+    }
+}

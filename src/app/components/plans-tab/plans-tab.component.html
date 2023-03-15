@@ -1,0 +1,52 @@
+<div class="select-wrapper" [ngClass]="{hidden:createMode || editMode || isLoading}">
+  <ion-button class="round-btn" color="primary" slot="end" (click)="setCreateMode(true)">
+    <i class="material-icons">add</i>
+  </ion-button>
+
+  <ion-select shape="round" [(ngModel)]="selectedPlan" (ionChange)="selectPlan()">
+    <ion-select-option *ngFor="let pl of favoriteService.playlists" [value]="pl.id">
+      {{pl.name}}
+    </ion-select-option>
+  </ion-select>
+
+  <ion-button fill="clear" (click)="setEditMode(true)" *ngIf="selectedPlan">Edit</ion-button>
+  <ion-button fill="clear" (click)="removePlan()" *ngIf="selectedPlan">Delete</ion-button>
+</div>
+
+<div class=" has-horizontal-padding" [ngClass]="{hidden:isLoading}">
+  <br>
+
+  <form class="form-wrapper" [formGroup]="planForm" *ngIf="createMode" (ngSubmit)="createPlan()">
+    <ion-input type="text" placeholder="Plan name" formControlName="name"></ion-input> 
+    
+    <ion-button type="submit" class="gradient-button full-width">
+      <span *ngIf="!isLoading">
+        Create Plan
+      </span>
+      <ion-spinner *ngIf="isLoading" ></ion-spinner>
+    </ion-button>
+
+    <ion-button class="full-width" color="danger" (click)="createMode = false">
+      <span >
+        Cancel
+      </span>
+    </ion-button>
+  </form>
+
+  <form class="form-wrapper" [formGroup]="planForm" *ngIf="editMode" (ngSubmit)="editPlan()">
+    <ion-input type="text" placeholder="Plan name" formControlName="name"></ion-input> 
+    
+    <ion-button type="submit" class="gradient-button full-width">
+      <span *ngIf="!isLoading">
+        Update Plan
+      </span>
+      <ion-spinner *ngIf="isLoading" ></ion-spinner>
+    </ion-button>
+  </form>
+
+  <div *ngFor="let video of currentVideos; let ind = index">
+    <video-wrapper [hideLikes]="true" [videoId]="video.video_id"></video-wrapper>
+    <video-notes [videoData]="video" (planChanged)="selectPlan()" [planData]="{planId: selectedPlan}"
+        (moveUp)="moveUp(ind)" (moveDown)="moveDown(ind)"></video-notes>    
+  </div>
+</div>

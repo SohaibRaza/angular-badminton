@@ -1,0 +1,46 @@
+.search-wrapper {
+    margin-top: 15px;
+    width: 60%;
+    margin-left: 20%;
+
+    ion-button {
+        width: 100%;
+    }
+}
+
+.open-filters-wrapper {
+    width: 60%;
+    margin-left: 20%;
+
+    ion-button {
+        width: 100%;
+    }
+}
+
+.toggle-wrapper {
+    position: relative;
+    height: 25px;
+    
+    ion-label {
+        float: right;
+        margin-top: 6px;
+        padding-right: 10px;
+    }
+
+    ion-toggle {
+        float: right;
+    }
+}
+
+.result-wrapper > p {
+    width: 100%;
+    margin-top: 45px;
+}
+
+.list-of-all:nth-of-type(3) {
+    ion-button {
+        margin: 5px;
+        width: auto;
+        float: none;
+    }
+}

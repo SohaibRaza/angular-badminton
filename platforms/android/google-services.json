@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "606595869276",
+    "firebase_url": "https://badminton-famly-plus-app.firebaseio.com",
+    "project_id": "badminton-famly-plus-app",
+    "storage_bucket": "badminton-famly-plus-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606595869276:android:a0be97fa122dcccfba9499",
+        "android_client_info": {
+          "package_name": "com.BadmintonFamly.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606595869276-ni2gtp93osob398gdlr3nhf01aa6vbub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVCyHuk1ZOQ4HBea_7FTYqPE0iCIQsRGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606595869276-ni2gtp93osob398gdlr3nhf01aa6vbub.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "606595869276-h0c8h2sf0dvbikh4u85e3c21lhngriiv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ios.BadmintonFamly"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606595869276:android:8fd95916d5fd9e19ba9499",
+        "android_client_info": {
+          "package_name": "famly.plus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606595869276-ni2gtp93osob398gdlr3nhf01aa6vbub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVCyHuk1ZOQ4HBea_7FTYqPE0iCIQsRGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606595869276-ni2gtp93osob398gdlr3nhf01aa6vbub.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "606595869276-h0c8h2sf0dvbikh4u85e3c21lhngriiv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ios.BadmintonFamly"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

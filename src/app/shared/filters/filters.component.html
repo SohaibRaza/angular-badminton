@@ -1,0 +1,4 @@
+<ion-button *ngFor="let filter of filters" (click)="toggle(filter)"
+    [ngClass]="{'gradient-button': filter.selected, 'inactive-button': !filter.selected}" >
+  {{filter.name}}
+</ion-button>

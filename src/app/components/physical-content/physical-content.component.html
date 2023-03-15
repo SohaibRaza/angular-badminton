@@ -1,0 +1,51 @@
+<ion-header  >
+  <ion-toolbar>
+
+ 
+<ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button >
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-back-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="has-background">
+  <div class="main-wrapper" [ngClass]="{hidden: isLoading}">
+    <div class="favorite-wrapper has-padding" *ngIf="pageInfo">
+      <p class="bold-green-text">{{pageInfo.clean_title}}
+        <i *ngIf="!favoritesService.favoritedPages[pageId]" (click)="addFavoritePage()" class="material-icons">favorite_border</i>
+        <i *ngIf="favoritesService.favoritedPages[pageId]" (click)="removeFavoritePage()" class="material-icons">favorite</i>
+      </p>
+      <p *ngIf="pageInfo.excerpt">
+        {{pageInfo.excerpt.category}}
+      </p>
+      
+      <div class="border-bottom"></div>
+    </div>
+
+    <div *ngFor="let section of asyncSections | async" class="{{section.excerpt.cssClass}}">
+      <div class="wp-content-wrapper has-padding  " [innerHTML]="section.content"></div>
+      <div class="embed-wrapper has-padding" *ngIf="section.excerpt && section.excerpt.videoId">
+        <video-wrapper [videoId]="section.excerpt.videoId"></video-wrapper>
+      </div>
+    </div>
+
+    <div class="has-horizontal-padding">
+      <p class="bold-green-text">
+        Latest Physical Programs
+      </p>
+    </div>
+    <div class="scroll-wrapper">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestPhysicalPrograms" routerLink="/physical-programs/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+  </div>
+</ion-content>

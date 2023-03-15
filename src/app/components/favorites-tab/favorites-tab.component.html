@@ -1,0 +1,27 @@
+<div class=" has-padding" [ngClass]="{hidden: isLoading}">
+  <div class="pages-wrapper">
+    <p class="bold-green-text">Your favorite content</p>
+    <div *ngFor="let fav of favoritePages" [ngClass]="{hidden: !favoritesService.favoritedPages[fav.entity_id]}">
+        <div *ngIf="fav.additionalInfo" class="record-info-wrapper" routerLink="/{{fav.additionalInfo.pageType}}/{{fav.entity_id}}">
+          <p class="bold-blue-text" >
+            {{this.pageNames[fav.additionalInfo.pageType]}} | {{fav.additionalInfo.category}}
+          </p>
+          <p class="bold-green-text">
+            {{fav.additionalInfo.title}}
+
+            <i class="material-icons" routerLink="/{{fav.additionalInfo.pageType}}/{{fav.entity_id}}" color="success">chevron_right</i>
+          </p>
+          <p>Coach: {{fav.additionalInfo.coach}} | Duration: {{fav.additionalInfo.duration}}</p>
+          <hr>
+        </div>        
+    </div>
+  </div>
+
+  <div class="videos-wrapper">
+    <p class="bold-green-text">Your favorite videos</p>
+    <div *ngFor="let fav of favoriteVideos" [ngClass]="{hidden: !favoritesService.favoritedVideos[fav.entity_id]}">
+      <video-wrapper [videoId]="fav.entity_id"></video-wrapper>
+    </div>
+  </div>
+  
+</div>

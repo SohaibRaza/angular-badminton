@@ -1,0 +1,74 @@
+<ion-header  >
+  <ion-toolbar>
+
+     
+    <span class="toolbar-label">{{currentCat}}</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-wrapper " [ngClass]="{hidden: isLoading}">
+    <p class="bold-green-text has-horizontal-padding">
+      Latest Training Programs
+    </p>
+    
+    <div class="scroll-wrapper " *ngIf="latestTraining">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestTraining" routerLink="/training-programs/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+
+    <p class="bold-green-text has-horizontal-padding">
+      Latest Tactical Lessons
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestTactical">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestTactical" routerLink="/tactical-lessons/{{tp.id}}" [src]="tp.featured_image_src" />
+      </div>
+    </div>
+    
+    <div class="has-padding">
+    <div class="list-of-all">
+      <p class="bold-green-text" >
+        All {{currentCat}} content
+      </p>
+      <ion-button *ngFor="let category of categoryNames" (click)="toggleCategory(category)"
+          [ngClass]="{'gradient-button': planCategories[category], 'inactive-button': !planCategories[category]}" >
+        {{category}}
+      </ion-button>
+    </div>
+
+    <div class="result-wrapper" *ngIf="records">
+      <div *ngFor="let tp of records" class="record-info-wrapper" routerLink="/{{pageService.pageUrlsBySlugs[tp.parent.slug]}}/{{tp.id}}">
+        <p class="bold-blue-text" >
+          {{tp.parent.clean_title}} | {{tp.excerpt.category}}
+        </p>
+        <p class="bold-green-text">
+          {{tp.clean_title}}
+
+          <i class="material-icons" routerLink="/{{pageService.pageUrlsBySlugs[tp.parent.slug]}}/{{tp.id}}" color="success">chevron_right</i>
+        </p>
+        <p *ngIf="tp.excerpt">Coach: {{tp.excerpt.coach}} | Duration: {{tp.excerpt.duration}}</p>
+        <hr>
+      </div>
+
+      <div *ngIf="displayCount < allFiltered.length" class="footer-wrapper">
+        <ion-button class="gradient-button big-btn" (click)="loadMore()">
+          LOAD MORE
+        </ion-button>
+      </div>
+    </div>
+    </div>
+  </div>
+</ion-content>

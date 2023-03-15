@@ -1,0 +1,44 @@
+<ion-header  >
+  <ion-toolbar>
+
+<img src="/assets/Background-top.jpg" />
+<ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ folder }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+
+<img src="/assets/Background-top.jpg" />
+<ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+      <ion-title size="large">{{ folder }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  
+    <div id="container">
+      <strong class="capitalize">{{ folder }}</strong>
+      <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  
+      <ion-row *ngIf="media.length">
+        <ion-col size-md="6" size-xs="12" *ngFor="let med of media">
+          <p>{{med.data.title}}</p>
+          
+        </ion-col>
+      </ion-row>
+    </div>
+  
+</ion-content>

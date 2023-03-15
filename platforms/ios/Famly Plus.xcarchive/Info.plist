@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/Famly Plus.app</string>
+		<key>Architectures</key>
+		<array>
+			<string>arm64</string>
+		</array>
+		<key>CFBundleIdentifier</key>
+		<string>famly.plus</string>
+		<key>CFBundleShortVersionString</key>
+		<string>0.0.54</string>
+		<key>CFBundleVersion</key>
+		<string>0.0.54</string>
+		<key>SigningIdentity</key>
+		<string>Apple Development: Saad DevCrew io (9PRYC65S52)</string>
+		<key>Team</key>
+		<string>P3WGHBHXJ3</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2023-01-16T07:35:18Z</date>
+	<key>Name</key>
+	<string>Famly Plus</string>
+	<key>SchemeName</key>
+	<string>Famly Plus</string>
+</dict>
+</plist>

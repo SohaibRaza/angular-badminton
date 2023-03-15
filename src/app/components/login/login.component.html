@@ -1,0 +1,60 @@
+<ion-content [fullscreen]="true">
+  <ion-slides pager="true" [options]="slideOpts" class="login-slides" #slides>
+    <ion-slide *ngFor="let img of loginImgs; let ind = index;">
+      <img  [src]="img.source_url" />
+      <a class="full-link" [href]="img.alt_text | safe" *ngIf="img.alt_text"></a>
+      <div *ngIf="ind == 0">
+
+        <div class="logo-wrapper">
+          <img src="/assets/logo-main.png" />
+        </div>
+
+        <form class="form-wrapper" [formGroup]="loginForm" *ngIf="loginForm && loginStep == 1" (ngSubmit)="login()">
+
+          <ion-button type="submit" class="gradient-button big-btn single-button">
+            LOGIN
+          </ion-button>
+        </form>
+
+        <form class="form-wrapper" [formGroup]="loginForm" *ngIf="loginStep == 2" (ngSubmit)="login()">
+          <ion-input type="text" placeholder="Username" formControlName="username" 
+                    (ionFocus)="removePlaceholder($event)" (ionBlur)="putPlaceholder($event)" ></ion-input>
+          <ion-input type="password" placeholder="Password" formControlName="password"
+                    (ionFocus)="removePlaceholder($event)" (ionBlur)="putPlaceholder($event)"></ion-input>    
+      
+          <ion-button type="submit" class="gradient-button big-btn">
+            <span *ngIf="!loading">
+              LOGIN
+            </span>
+            <ion-spinner *ngIf="loading" ></ion-spinner>
+          </ion-button>
+          <div>
+            <p (click)="loginStep = 3">
+              Forgot Password ?
+            </p>
+          </div>    
+        </form>
+
+        <form class="form-wrapper" [formGroup]="forgotForm" *ngIf="loginStep == 3" 
+              (ngSubmit)="sendResetPassword()">
+          <ion-input type="email" placeholder="Email" formControlName="email" 
+                    (ionFocus)="removePlaceholder($event)" (ionBlur)="putPlaceholder($event)" ></ion-input>    
+      
+          <ion-button type="submit" class="gradient-button big-btn">
+            <span *ngIf="!loading">
+              RESET PASSWORD
+            </span>
+            <ion-spinner *ngIf="loading" ></ion-spinner>
+          </ion-button>   
+        </form>
+
+        <i *ngIf="loginStep > 2" class="material-icons" 
+            (click)="loginStep = 1">chevron_left</i>
+      </div>      
+    </ion-slide>
+  </ion-slides>
+
+  
+
+  
+</ion-content>

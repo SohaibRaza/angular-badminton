@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>606595869276-12t66ql7pksl40ase2ia8j37u1e9i97l.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.606595869276-12t66ql7pksl40ase2ia8j37u1e9i97l</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBjlRzirAtEzVyYCY17Dhc6m8U73BrfSZA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>606595869276</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>famly.plus</string>
+	<key>PROJECT_ID</key>
+	<string>badminton-famly-plus-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>badminton-famly-plus-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:606595869276:ios:7c07d2623245ec9aba9499</string>
+	<key>DATABASE_URL</key>
+	<string>https://badminton-famly-plus-app.firebaseio.com</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Easy log in</string>
+</dict>
+</plist>

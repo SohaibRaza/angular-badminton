@@ -1,0 +1,40 @@
+.select-wrapper {
+    padding: 30px 20px;
+    background: linear-gradient(111deg,#1bb3eb 0%,#25efcb 100%) !important;
+
+    ion-select {
+        background: white;
+    }
+
+    ion-select {
+        border-radius: 10px;
+        color: var(--ion-color-dark-blue);
+        letter-spacing: 3px;
+    }
+
+    .round-btn {
+        width: 40px;
+        height: 40px;
+        float: right;
+        margin-top: 0px;
+        --border-radius: 45px;
+    }
+
+    ion-button {
+        color: white;
+    }
+}
+
+.footer-wrapper {
+    ion-button {
+        position: relative;
+        width: 50%;
+        left: 25%;
+        
+    }
+    padding-bottom: 20px;
+}
+
+.mt-2 {
+    margin-top: 2em;
+}

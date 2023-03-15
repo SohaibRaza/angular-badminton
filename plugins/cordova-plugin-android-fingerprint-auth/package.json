@@ -1,0 +1,60 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-android-fingerprint-auth@1.5.0",
+      "/Users/saadqureshi/devcrew/badminton/v2/Mobile-app"
+    ]
+  ],
+  "_from": "cordova-plugin-android-fingerprint-auth@1.5.0",
+  "_id": "cordova-plugin-android-fingerprint-auth@1.5.0",
+  "_inBundle": false,
+  "_integrity": "sha512-EozuBxIAo7rnIZajSWJIN8Re0KdExSlH9kxUqhYVUExzB4jQDm+JO2qcSGulXcoGsabqRgqR8XRuaoa+h+XSBQ==",
+  "_location": "/cordova-plugin-android-fingerprint-auth",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "cordova-plugin-android-fingerprint-auth@1.5.0",
+    "name": "cordova-plugin-android-fingerprint-auth",
+    "escapedName": "cordova-plugin-android-fingerprint-auth",
+    "rawSpec": "1.5.0",
+    "saveSpec": null,
+    "fetchSpec": "1.5.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-android-fingerprint-auth/-/cordova-plugin-android-fingerprint-auth-1.5.0.tgz",
+  "_spec": "1.5.0",
+  "_where": "/Users/saadqureshi/devcrew/badminton/v2/Mobile-app",
+  "author": {
+    "name": "Matthew Wheatley"
+  },
+  "bugs": {
+    "url": "https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-android-fingerprint-auth",
+    "platforms": [
+      "android"
+    ]
+  },
+  "description": "Cordova plugin to use Android fingerprint authentication API",
+  "homepage": "https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth#readme",
+  "keywords": [
+    "cordova",
+    "plugin",
+    "android",
+    "fingerprint",
+    "authentication",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-android-fingerprint-auth",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjwheatley/cordova-plugin-android-fingerprint-auth.git"
+  },
+  "version": "1.5.0"
+}

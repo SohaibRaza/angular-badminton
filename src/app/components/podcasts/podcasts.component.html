@@ -1,0 +1,58 @@
+<ion-header  >
+  <ion-toolbar>
+
+     
+    <span class="toolbar-label">Podcasts</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="main-wrapper " >
+    <p class="bold-green-text has-horizontal-padding">
+      Latest Podcasts
+    </p>
+    <div class="scroll-wrapper" *ngIf="latestPodcasts">
+      <div class="horizontal-scroll">
+        <img *ngFor="let tp of latestPodcasts" routerLink="/podcasts/{{tp.id}}" 
+              [src]="tp.featured_image_src" />
+      </div>
+    </div>
+  <div class="has-padding">
+    <p class="bold-green-text no-bottom-space">
+      All Podcasts
+    </p>
+    <div *ngFor="let tp of filteredPodcasts" class="record-info-wrapper" routerLink="/podcasts/{{tp.id}}">
+      <p class="bold-blue-text" >
+        Podcast 
+      </p>
+      <p class="bold-green-text">
+        {{tp.title}}
+
+        <i class="material-icons" routerLink="/podcasts/{{tp.id}}" color="success">chevron_right</i>
+      </p>
+      <p>Published: {{tp.excerpt.published}} | Duration: {{tp.excerpt.duration}}</p>
+      <hr>
+    </div>
+
+    <div *ngIf="displayCount < podcasts.length" class="footer-wrapper">
+      <ion-button class="gradient-button big-btn" (click)="loadMore()">
+        LOAD MORE
+      </ion-button>
+    </div>
+  </div>
+  </div>
+</ion-content>

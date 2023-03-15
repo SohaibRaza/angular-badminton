@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Famly Plus",
+  "short_name": "Famly Plus",
+  "version": "famly.plus",
+  "description": "An awesome app.",
+  "author": "Aghajanyan Grigor",
+  "icons": [],
+  "start_url": "index.html"
+}

@@ -1,0 +1,89 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" *ngIf="userService.loggedIn">
+      <ion-content>
+        <ion-menu-toggle>
+          <ion-item class="top-item">
+            <i class="material-icons dark-icon">close</i>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        
+          <ion-list-header class="bold-green-text">Themes</ion-list-header>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index;">
+            <ion-item (click)="selectedIndex = i; selectedCatIndex = 1000;selectedSecIndex = 100" routerDirection="root" 
+              [routerLink]="[p.url]" lines="none" detail="false"
+             [class.selected]="selectedIndex == i" >
+              
+              <i slot="start" class="material-icons" [ngClass]="{'ion-success-color': selectedIndex == i}">{{p.icon}}</i>
+              <ion-label [color]="selectedIndex == i ? 'success' : 'primary'">{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+
+
+          <ion-list-header class="bold-green-text">Categories</ion-list-header>
+
+          <ion-menu-toggle auto-hide="false" >
+            <ion-item (click)="selectedCatIndex = i; selectedIndex = 1000;selectedSecIndex = 100" routerDirection="root" [class.selected]="selectedCatIndex == i"
+                      *ngFor="let cat of categoryItems; let i = index;" routerLink="/category/{{cat.name}}" 
+                      lines="none" detail="false">              
+              <i slot="start" [ngClass]="{'ion-success-color': selectedCatIndex == i}" class="material-icons">{{cat.icon}}</i>
+              <ion-label [color]="selectedCatIndex == i ? 'success' : 'primary'">{{cat.name}}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        
+          <ion-item lines="none" class="logo-wrapper">
+            <img src="/assets/logo-main.png" />
+          </ion-item>
+        
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content" [ngClass]="{'bottom-margin': userService.loggedUser | async }"></ion-router-outlet>
+
+    <ion-footer *ngIf="userService.loggedUser | async" id="bottom-navigation">
+      <div (click)="selectedSecIndex = 1; selectedCatIndex = 1000;selectedIndex = 100"
+      class="section" routerLink="/browse">
+        <i [ngClass]="{'ion-success-color': selectedSecIndex == 1}" class="material-icons" id="hidBrowse" (click)="makeActive()">view_quilt</i>
+        <p>
+          Browse
+        </p>
+      </div>
+
+      <div (click)="selectedSecIndex = 2; selectedCatIndex = 1000;selectedIndex = 100"
+      class="section" routerLink="/plans/favorites">
+        <i [ngClass]="{'ion-success-color': selectedSecIndex == 2}" class="material-icons">favorite</i>
+        <p>
+          Favorites
+        </p>
+      </div>
+      
+      <div  (click)="selectedSecIndex = 3; selectedCatIndex = 1000;selectedIndex = 100"
+      class="section" routerLink="/plans/plans">
+        <i [ngClass]="{'ion-success-color': selectedSecIndex == 3}" class="material-icons">menu_book</i>
+        <p>
+          Plans
+        </p>
+      </div>
+
+      <div  (click)="selectedSecIndex = 5; selectedCatIndex = 1000;selectedIndex = 100"
+      class="section" routerLink="/downloads">
+        <i [ngClass]="{'ion-success-color': selectedSecIndex == 5}" class="material-icons">download</i>
+        <p>
+          Downloads
+        </p>
+      </div>
+
+      <div  (click)="selectedSecIndex = 4; selectedCatIndex = 1000;selectedIndex = 100"
+      class="section" routerLink="/search">
+        <i [ngClass]="{'ion-success-color': selectedSecIndex == 4}" class="material-icons">search</i>
+        <p>
+          Search
+        </p>
+      </div>
+      
+    </ion-footer>
+  </ion-split-pane>
+</ion-app>

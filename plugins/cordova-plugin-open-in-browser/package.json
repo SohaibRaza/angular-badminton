@@ -1,0 +1,19 @@
+{
+  "name": "OpenInBrowser",
+  "version": "0.0.1",
+  "description": "Your Plugin Description",
+  "cordova": {
+    "id": "cordova-plugin-open-in-browser",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "browser",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Grigor Aghajanyan",
+  "license": "MIT"
+}

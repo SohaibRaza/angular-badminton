@@ -1,0 +1,56 @@
+<ion-header  >
+  <ion-toolbar>
+
+    <span class="toolbar-label">What's new</span>
+    <ion-buttons slot="end">
+      <i class="material-icons" routerLink="/whats-new">schedule</i>
+
+      <i class="material-icons" routerLink="/settings">person</i>      
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <i class="material-icons" >menu</i>
+      </ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="main-wrapper has-padding" [ngClass]="{hidden: isLoading}">
+    <div class="result-wrapper" *ngIf="records">
+      <div *ngFor="let tp of records" class="record-info-wrapper" 
+            routerLink="/{{pageService.pageUrlsBySlugs[tp.parent.slug]}}/{{tp.id}}">
+        <p class="bold-blue-text" >
+          {{tp.parent.clean_title}} <span *ngIf="tp.excerpt.category">
+            | {{tp.excerpt.category}}
+          </span>
+        </p>
+        <p class="bold-green-text">
+          {{tp.clean_title}}
+
+          <i class="material-icons" routerLink="/{{pageService.pageUrlsBySlugs[tp.parent.slug]}}/{{tp.id}}" color="success">chevron_right</i>
+        </p>
+        <p *ngIf="tp.excerpt">
+          <span *ngIf="tp.excerpt.coach">
+            Coach: {{tp.excerpt.coach}}
+          </span>
+          <span *ngIf="tp.excerpt.published">
+            Published: {{tp.excerpt.published}}
+          </span>
+          {{ tp.excerpt.duration? '| Duration' : 'Video in theme'}}: {{tp.excerpt.duration || tp.excerpt.videoAmount}}
+        </p>
+        <hr>
+      </div>
+
+      <div *ngIf="showLoadMore" class="footer-wrapper">
+        <ion-button class="gradient-button big-btn" (click)="loadMore()">
+          LOAD MORE
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
